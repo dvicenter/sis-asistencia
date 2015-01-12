@@ -1,0 +1,48 @@
+header{
+	position: relative;
+	z-index: 2;
+	background: #fff;
+	box-shadow: 0 0 5px #999;
+}
+.h-title{
+	height: 70px;
+	padding: 10px 0;
+}
+.h-title h1{
+	font-size: 1.5em;
+	margin: 0;
+}
+header img{
+	height: 50px;
+}
+
+.sec-block{
+	display: inline-block;
+	vertical-align: top;
+	background: #fff;
+	height: 600px;
+}
+#sec-nav{
+	position: relative;
+	z-index: 1;
+	width: 20%;
+	padding: 1%;
+}
+#sec-content{
+	width: 80%;
+	padding: 1%;
+}
+#sec-content img{
+	width: 100%;
+}
+#sec-content div{
+	width: 350px;
+	margin: 10% auto !important;
+}
+.sec-filter{
+	padding: 15px;
+	border-bottom: 1px solid #ddd;
+}
+.sec-assistence{
+	padding: 1%;
+}
