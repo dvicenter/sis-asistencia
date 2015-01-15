@@ -6,8 +6,6 @@ class C_panel extends CI_Controller {
     {	parent::__construct();
 	    $this->load->helper('url');
 	    $this->load->model('M_panel');
-	    $this->load->helper('form');
-	    $this->load->library('form_validation');
 	    $this->load->library('session');
     }
 

@@ -4,7 +4,7 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array();
 
-$autoload['helper'] = array('url');
+$autoload['helper'] = array();
 
 $autoload['config'] = array();
 

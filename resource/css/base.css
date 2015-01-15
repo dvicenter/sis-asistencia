@@ -1,2 +1,3 @@
 body{background: #eee !important;}
+.icons{background: url(../img/util/png/icons.png);}
 #sec-login{width: 25%;padding: 3%;margin: 6% auto;box-sizing: border-box;background: #fff;box-shadow: 0 0 7px #ddd;border-radius: .5em;}

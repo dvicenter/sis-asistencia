@@ -1,6 +1,7 @@
 $(document).on('ready',function(){
 
-	$('a.list-group-item').on('click',function(){
+	$('a.list-group-item').on('click',function(e){
+		e.preventDefault();
 		$('a.list-group-item').removeClass('active');
 		$(this).addClass('active');
 		var num_mod = $(this).index();
@@ -12,13 +13,18 @@ $(document).on('ready',function(){
 		}
 	});
 
+	$(document).on('change','#sltAsistio', function() {
+		var select = $(this).val();
+		var id = $(this).parent().parent().children('td').eq(0).children('input').val();
+		console.log(id);
+	});
+
 });
 
 function ajax_mod(name_mod){
 	$.ajax({
 		url: base_url+'mod/'+name_mod,
-		type: 'POST',
-		context: document.body
+		type: 'POST'
 	}).done(function(data) {
 		$('#sec-content').html(data);
 	});
