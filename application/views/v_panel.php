@@ -10,6 +10,7 @@
 	<script src="<?php echo base_url();?>resource/js/jquery-1.11.2.min.js"></script>
 	<script src="<?php echo base_url();?>resource/js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url();?>resource/js/system.js"></script>
+	<script src="<?php echo base_url();?>resource/js/crud.js"></script>
 </head>
 <body>
 	<?php $this->load->view('base/v_header'); ?>
