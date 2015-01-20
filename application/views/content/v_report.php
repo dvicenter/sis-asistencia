@@ -1,0 +1,1 @@
+<iframe src="<?php echo base_url().'report';?>" width="100%" height="100%" frameborder="0"></iframe>

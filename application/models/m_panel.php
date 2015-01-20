@@ -37,4 +37,34 @@ class M_panel extends CI_Model{
         $query = $this->db->get();
         return $query->result_array();
     }
+    public function updAsist($idAsistencia, $asistio, $fecha)
+    {
+        $fecha_ins = ($fecha == "")?date("Y-m-d") : $fecha;
+
+        $data = array(
+           'asistio' => $asistio ,
+           'fecha' => $fecha_ins
+        );
+
+        $this->db->where('idAsistencia', $idAsistencia);
+        $this->db->update('tbl_asistencia', $data); 
+    }
+    public function getViewPracticantes()
+    {
+        $this->db->select('*');
+        $this->db->from('vw_practicantes');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    public function getPracticingReport($pNombre)
+    {   
+        $query = $this->db->query("CALL prc_cnd_pract('".$pNombre."')");
+        return $query->result_array();
+    }
+
+    public function getAsistePracticante($idPracticante)
+    {
+        $query = $this->db->query("CALL prc_cnd_rpt_asist(".$idPracticante.")");
+        return $query->result_array();
+    }
 }

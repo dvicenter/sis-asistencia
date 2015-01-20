@@ -26,8 +26,8 @@
 		  			<td>
 		  				<select name="asisitio" class="form-control" id="sltAsistio">
 		  					<option value="null" <?php echo ($item['asistio']==null)?'selected':'';?> >Marcar Asistencia</option>
-		  					<option class="asis-f" value="0" <?php echo ($item['asistio']==0)?'selected':'';?> >Falto</option>
-		  					<option class="asis-a" value="1" <?php echo ($item['asistio']==1)?'selected':'';?> >Asistio</option>
+		  					<option class="asis-f" value="0" <?php echo ($item['asistio']=='0')?'selected':'';?> >Falto</option>
+		  					<option class="asis-a" value="1" <?php echo ($item['asistio']=='1')?'selected':'';?> >Asistio</option>
 		  				</select>
 		  			</td>
 	  			</tr>	

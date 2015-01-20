@@ -4,5 +4,7 @@
 		<a href="javascript:;" class="list-group-item">Practicantes</a>
 		<a href="javascript:;" class="list-group-item">Instituciones</a>
 		<a href="javascript:;" class="list-group-item">Area</a>
+		<a href="javascript:;" class="list-group-item">Reporte de Practicantes</a>
+		<a href="javascript:;" class="list-group-item">Reporte de Asistencia</a>
 	</div>
 </section>

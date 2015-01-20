@@ -52,3 +52,17 @@ header img{
 .asis-a{
 	color: green;
 }
+.sec-practicantes{
+	height: 100px;
+	overflow: auto;
+}
+.sec-report{
+	height: 400px;
+}
+.loading{
+	background: url(../img/util/gif/loading.gif);
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 400px;
+	margin: 0 auto;
+}
