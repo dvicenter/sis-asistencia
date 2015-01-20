@@ -15,8 +15,12 @@ $(document).on('ready',function(){
 
 	$(document).on('change','#sltAsistio', function() {
 		var select = $(this).val();
-		var id = $(this).parent().parent().children('td').eq(0).children('input').val();
-		console.log(id);
+		var idPracticante = $(this).parent().parent().children('td').eq(0).children('input[name="idPracticante"]').val();
+		var idAsistencia = $(this).parent().parent().children('td').eq(0).children('input[name="idAsistencia"]').val();
+		var fecha = $('input[name="fecha"]').val();
+		
+		ajax_ins_asist(idAsistencia,idPracticante,select,fecha);
+	
 	});
 
 });
@@ -28,4 +32,39 @@ function ajax_mod(name_mod){
 	}).done(function(data) {
 		$('#sec-content').html(data);
 	});
+}
+
+function ajax_search_pract_date(fecha){
+	$.ajax({
+		url: base_url+'asist/search/',
+		type: 'POST',
+		data: {fecha : fecha}
+	}).done(function(data) {
+		$('.sec-assistence').html(data);
+	});
+}
+
+function ajax_ins_asist(idAsist,idPract,asist,fecha){
+	debugger;
+	if (idAsist != '0') {
+		$.ajax({
+			url: base_url+'asist/upd',
+			type: 'POST',
+			data: { idAsistencia: "John", location: "Boston" }
+		}).done(function(data) {
+			//$('#sec-content').html(data);
+		});
+	}else{
+		$.ajax({
+			url: base_url+'asist/set',
+			type: 'POST',
+			dataType: 'json',
+			data: { idPracticante: idPract, asistio: asist, fecha: fecha }
+		}).done(function(data) {
+
+			ajax_search_pract_date(data[0].fecha);
+			console.log(data);
+		});
+		
+	}
 }

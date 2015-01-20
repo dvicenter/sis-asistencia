@@ -24,4 +24,18 @@ class C_panel extends CI_Controller {
 				echo $this->load->view('content/v_area');break;
 		}
 	}
+
+	public function getPractForDate(){
+		$date = $_POST['fecha'];
+		$data['practicantes'] = $this->M_panel->getPracticingFroDate($date);
+		echo $this->load->view('list/l_assistance',$data);
+	}
+
+	public function setAsist(){
+		$idPracticante = $_POST['idPracticante'];
+		$asistio = $_POST['asistio'];
+		$fecha = $_POST['fecha'];
+		$idAsistencia = $this->M_panel->setAsist($idPracticante, $asistio, $fecha);
+		echo json_encode($idAsistencia);
+	}
 }

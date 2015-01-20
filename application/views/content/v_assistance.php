@@ -1,6 +1,6 @@
 <section class="sec-filter">
 	<label for="fecha">Fecha</label>
-	<input type="date">
+	<input type="date" name="fecha" >
 	<button class="btn btn-default">Buscar</button>
 </section>
 <section class="sec-assistence">
