@@ -1,7 +1,7 @@
 <section class="sec-filter">
 	<input type="hidden" name="idInstituto" >
-	<label for="nombre">Area: </label>
-	<input type="text" name="nombre_instituto" >
+	<label for="nombre">Instituto: </label>
+	<input type="text" class="form-control" name="nombre_instituto" >
 	<button class="btn btn-default" id="btn_instituto">Guardar</button>
 </section>
 <section class="sec-assistence">

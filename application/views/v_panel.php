@@ -14,7 +14,7 @@
 </head>
 <body>
 	<?php $this->load->view('base/v_header'); ?>
-	<section>
+	<section id="p_content">
 		<?php $this->load->view('base/v_nav'); ?><!--  
 	 --><section class="sec-block" id="sec-content">
 	 		<div>

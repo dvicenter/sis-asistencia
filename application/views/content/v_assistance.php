@@ -1,6 +1,6 @@
 <section class="sec-filter">
 	<label for="fecha">Fecha</label>
-	<input type="date" name="fecha" value="<?php echo date("Y-m-d");?>" >
+	<input type="date" class="form-control" name="fecha" value="<?php echo date("Y-m-d");?>" >
 	<button class="btn btn-default" id="search-pract">Buscar</button>
 </section>
 <section class="sec-assistence">

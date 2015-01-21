@@ -50,6 +50,85 @@ class C_panel extends CI_Controller {
 		$idAsistencia = $this->M_panel->setAsist($idPracticante, $asistio, $fecha);
 		echo json_encode($idAsistencia);
 	}
+	public function setArea(){
+		$area = $_POST['pArea'];
+		$data = $this->M_panel->setArea($area);
+
+		$data['area'] = $this->M_panel->getArea();
+		echo $this->load->view('content/v_area',$data);
+	}
+	public function updateArea(){
+		$idArea = $_POST['pIdArea'];
+		$area = $_POST['pArea'];
+		$data = $this->M_panel->updateArea($idArea,$area);
+
+		$data['area'] = $this->M_panel->getArea();
+		echo $this->load->view('content/v_area',$data);
+	}
+	public function deleteArea(){
+		$idArea = $_POST['pIdArea'];
+		$data = $this->M_panel->deleteArea($idArea);
+
+		$data['area'] = $this->M_panel->getArea();
+		echo $this->load->view('content/v_area',$data);
+	}
+	public function setInstituto(){
+		$instituto = $_POST['pInstituto'];
+		$data = $this->M_panel->setInstituto($instituto);
+
+		$data['instituto'] = $this->M_panel->getInstituto();
+		echo $this->load->view('content/v_institute',$data);
+	}
+	public function updateInstituto(){
+		$idInstituto = $_POST['pIdInstituto'];
+		$instituto = $_POST['pInstituto'];
+		$data = $this->M_panel->updateInstituto($idInstituto,$instituto);
+
+		$data['instituto'] = $this->M_panel->getInstituto();
+		echo $this->load->view('content/v_institute',$data);
+	}
+	public function deleteInstituto(){
+		$idInstituto = $_POST['pIdInstituto'];
+		$data = $this->M_panel->deleteInstituto($idInstituto);
+
+		$data['instituto'] = $this->M_panel->getInstituto();
+		echo $this->load->view('content/v_institute',$data);
+	}
+	public function setPracticante(){
+		$nombre = $_POST['pNombre'];
+		$apellido = $_POST['pApellido'];
+		$area = $_POST['pArea'];
+		$instituto = $_POST['pInstituto'];
+		$fechaInicio = $_POST['pFechaInicio'];
+		$fechaFin = $_POST['pFechaFinal'];
+
+		$data = $this->M_panel->setPracticante($nombre,$apellido,$area,$instituto,$fechaInicio,$fechaFin);
+
+		$data['practicante'] = $this->M_panel->getPracticante();
+		echo $this->load->view('content/v_practicing',$data);
+	}
+	public function updatePracticante(){
+		$idPracticante=$_POST['pIdPracticante'];
+		$nombre = $_POST['pNombre'];
+		$apellido = $_POST['pApellido'];
+		$area = $_POST['pArea'];
+		$instituto = $_POST['pInstituto'];
+		$fechaInicio = $_POST['pFechaInicio'];
+		$fechaFin = $_POST['pFechaFinal'];
+		$data = $this->M_panel->updatePracticante($idPracticante,$nombre,$apellido,$area,$instituto,$fechaInicio,$fechaFin);
+
+		$data['area'] = $this->M_panel->getArea();
+		$data['instituto'] = $this->M_panel->getInstituto();
+		$data['practicante'] = $this->M_panel->getPracticante();
+		echo $this->load->view('content/v_practicing',$data);
+	}
+	public function deletePracticante(){
+		$idPracticante = $_POST['pIdPracticante'];
+		$data = $this->M_panel->deletePracticante($idPracticante);
+
+		$data['practicante'] = $this->M_panel->getPracticante();
+		echo $this->load->view('content/v_practicing',$data);
+	}
 
 	public function udpAsist(){
 		$idAsistencia = $_POST['idAsistencia'];
@@ -70,7 +149,7 @@ class C_panel extends CI_Controller {
 		$practicantes = $this->M_panel->getAsistePracticante($idPracticante);
 		$this->load->library('Pdf');
 		$pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-
+		ob_clean();
 
 		$pdf->SetHeaderData('logo-sis.png', PDF_HEADER_LOGO_WIDTH, 'HOSPITAL REGIONAL HUACHO', 'Reporte de Practicantes');
 
@@ -143,11 +222,13 @@ class C_panel extends CI_Controller {
 		$pdf->Output('algo.pdf', 'I');	
 	}
 
-	public function generarPDF(){
+	public function generarPDF()
+	{
 		$practicantes = $this->M_panel->getViewPracticantes();
+
 		$this->load->library('Pdf');
 		$pdf = new Pdf(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-
+		ob_clean();
 
 		$pdf->SetHeaderData('logo-sis.png', PDF_HEADER_LOGO_WIDTH, 'HOSPITAL REGIONAL HUACHO', 'Reporte de Practicantes');
 
@@ -211,7 +292,7 @@ class C_panel extends CI_Controller {
 				</table>';
 
 		// output the HTML content
-		$pdf->writeHTML($html, true, false, true, false, '');
+		$pdf->writeHTML($html, true, false, true, false, 'C');
 
 
 		// output some RTL HTML content
@@ -220,82 +301,11 @@ class C_panel extends CI_Controller {
 		//Close and output PDF document
 		$pdf->Output('example_006.pdf', 'I');
 	}
-	public function setArea(){
-		$area = $_POST['pArea'];
-		$data = $this->M_panel->setArea($area);
+/*<<<<<<< HEAD
 
-		$data['area'] = $this->M_panel->getArea();
-		echo $this->load->view('content/v_area',$data);
-	}
-	public function updateArea(){
-		$idArea = $_POST['pIdArea'];
-		$area = $_POST['pArea'];
-		$data = $this->M_panel->updateArea($idArea,$area);
+	
+=======
+	
 
-		$data['area'] = $this->M_panel->getArea();
-		echo $this->load->view('content/v_area',$data);
-	}
-	public function deleteArea(){
-		$idArea = $_POST['pIdArea'];
-		$data = $this->M_panel->deleteArea($idArea);
-
-		$data['area'] = $this->M_panel->getArea();
-		echo $this->load->view('content/v_area',$data);
-	}
-	public function setInstituto(){
-		$instituto = $_POST['pInstituto'];
-		$data = $this->M_panel->setInstituto($instituto);
-
-		$data['instituto'] = $this->M_panel->getInstituto();
-		echo $this->load->view('content/v_institute',$data);
-	}
-	public function updateInstituto(){
-		$idInstituto = $_POST['pIdInstituto'];
-		$instituto = $_POST['pInstituto'];
-		$data = $this->M_panel->updateInstituto($idInstituto,$instituto);
-
-		$data['instituto'] = $this->M_panel->getInstituto();
-		echo $this->load->view('content/v_institute',$data);
-	}
-	public function deleteInstituto(){
-		$idInstituto = $_POST['pIdInstituto'];
-		$data = $this->M_panel->deleteInstituto($idInstituto);
-
-		$data['instituto'] = $this->M_panel->getInstituto();
-		echo $this->load->view('content/v_institute',$data);
-	}
-	public function setPracticante(){
-		$nombre = $_POST['pNombre'];
-		$apellido = $_POST['pApellido'];
-		$area = $_POST['pArea'];
-		$instituto = $_POST['pInstituto'];
-		$fechaInicio = $_POST['pFechaInicio'];
-		$fechaFin = $_POST['pFechaFinal'];
-
-		$data = $this->M_panel->setPracticante($nombre,$apellido,$area,$instituto,$fechaInicio,$fechaFin);
-
-		$data['practicante'] = $this->M_panel->getPracticante();
-		echo $this->load->view('content/v_practicing',$data);
-	}
-	public function updatePracticante(){
-		$idPracticante=$_POST['pIdPracticante'];
-		$nombre = $_POST['pNombre'];
-		$apellido = $_POST['pApellido'];
-		$area = $_POST['pArea'];
-		$instituto = $_POST['pInstituto'];
-		$fechaInicio = $_POST['pFechaInicio'];
-		$fechaFin = $_POST['pFechaFinal'];
-		$data = $this->M_panel->updatePracticante($idPracticante,$nombre,$apellido,$area,$instituto,$fechaInicio,$fechaFin);
-
-		$data['practicante'] = $this->M_panel->getPracticante();
-		echo $this->load->view('content/v_practicing',$data);
-	}
-	public function deletePracticante(){
-		$idPracticante = $_POST['pIdPracticante'];
-		$data = $this->M_panel->deletePracticante($idPracticante);
-
-		$data['practicante'] = $this->M_panel->getPracticante();
-		echo $this->load->view('content/v_practicing',$data);
-	}
-
+>>>>>>> 4a164dfb0561048e47d1cde3f295688fe411c6db*/
 }

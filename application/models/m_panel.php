@@ -81,7 +81,7 @@ class M_panel extends CI_Model{
         $this->db->select('*');
         $this->db->from('vw_practicantes');
         $query = $this->db->get();
-        return $query->result_array();
+        return  $query->result_array();
     }
     public function getPracticingReport($pNombre)
     {   
@@ -93,6 +93,7 @@ class M_panel extends CI_Model{
     {
         $query = $this->db->query("CALL prc_cnd_rpt_asist(".$idPracticante.")");
         return $query->result_array();
+    }
     public function setArea($area)
     {
         $data = array(

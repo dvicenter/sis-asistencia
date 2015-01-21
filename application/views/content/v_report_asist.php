@@ -1,6 +1,6 @@
 <section class="sec-filter">
 	<label for="inp-practicantes">Practicante</label>
-	<input type="text" id="inp-practicantes" name="practicantes">
+	<input type="text" class="form-control" id="inp-practicantes" name="practicantes">
 </section>
 <section class="sec-practicantes">
 
